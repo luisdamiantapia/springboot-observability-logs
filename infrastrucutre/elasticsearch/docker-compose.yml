@@ -1,0 +1,24 @@
+version: '3.5'
+
+services:
+    elasticsearch:
+        image: elasticsearch:7.16.2
+        container_name: elasticsearch
+        environment:
+            - "discovery.type=single-nodo"
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+            - "xpack.security.enabled=false"
+        ports:
+            - '9200:9200'
+        networks:
+            - observability-network
+        volumes:
+            - elasticsearch-data:/usr/share/elasticsearch/data
+
+networks:
+    observability-network:
+        external: true
+
+volumes:
+    elasticsearch-data:
+        driver: local

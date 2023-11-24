@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+    logs-app:
+        build:
+            context: .
+            dockerfile: .docker/Dockerfile
+        container_name: logs-app
+        ports:
+            - '8900:8900'
+        networks:
+            - observability-network
+        depends_on:
+            - fluentd
+        logging:
+            options:
+                fluentd-address: localhost:24224
+                fluent-async-connect: "true"
+
+networks:
+    observability-network:
+        external: true
