@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+    fluentd:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: fluentd
+        networks:
+            - observability-network
+        ports:
+            - '24224:24224'
+            - '24224:24224/udp'
+        volumes:
+            - ./fluent.conf:/fluentd/etc/fluent.conf
+        depends_on:
+            - elasticsearch
+
+networks:
+    observability-network:
+        external: true
+
+volumes:
+    fluentd-logs:
+        driver: local
