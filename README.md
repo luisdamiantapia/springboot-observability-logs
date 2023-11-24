@@ -23,7 +23,4 @@ Sigue estos pasos para implementar la solución en tu entorno:
 3. Ajusta la configuración de Fluentd para la recopilación y envío de logs.
 4. Despliega la solución y verifica la conectividad con Elasticsearch y Kibana.
 
-## Contribuciones
-
-¡Las contribuciones son bienvenidas! Si encuentras errores, mejoras potenciales o nuevas características que podrían enriquecer este proyecto, no dudes en abrir un problema o enviar una solicitud de extracción.
 
