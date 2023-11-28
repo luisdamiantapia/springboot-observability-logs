@@ -15,6 +15,7 @@ services:
             - ./fluent.conf:/fluentd/etc/fluent.conf
         depends_on:
             - elasticsearch
+        hostname: fluentd
 
 networks:
     observability-network:
